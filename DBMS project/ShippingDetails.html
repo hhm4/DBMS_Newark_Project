@@ -29,7 +29,11 @@
 <form method=post action=>
 <table>
 <tr>
-<td>Name*:&nbsp&nbsp&nbsp&nbsp&nbsp  &nbsp&nbsp&nbsp       &nbsp&nbsp&nbsp&nbsp&nbsp &nbsp;  <input type=text name=saname></td>
+<td>Name*:&nbsp&nbsp&nbsp&nbsp&nbsp  &nbsp&nbsp&nbsp  &nbsp&nbsp&nbsp&nbsp&nbsp &nbsp;  <select name="shippingAddName" id="shippingAddName" onchange="jsFunction(this.value);">
+   <option>Choose Ship. Addr. Name </option>
+   <option value="1">Home</option>
+   <option value="2">Work</option>
+</select>  </td>
 </tr>
 <tr/>
 <tr/>
@@ -78,15 +82,7 @@
 <tr/>
 <tr>
 <tr>
-<td>Country*: &nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp &nbsp&nbsp   &nbsp;<input type="text" id="country" /></td>
-</tr>
-<tr/>
-<tr/>
-<tr/>
-<tr/>
-<tr/>
-<tr>
-<td>Country*: &nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp &nbsp&nbsp   &nbsp;<input type="text" id="country" /></td>
+<td>Country*: &nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp &nbsp&nbsp   &nbsp;<input type="text" id="count" /></td>
 </tr>
 <tr/>
 <tr/>
@@ -97,8 +93,34 @@
 <tr>
 <tr>
 <td></td></tr>
-<td align=center>  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp&nbsp &nbsp<input type=submit value=Submit ></td>
+<td align=center>  <input type=submit value=Delete onclick="onDelete">  &nbsp&nbsp &nbsp<input type=submit value=Submit onclick="onSubmit()" ></td>
 </table>
+<script type="text/javascript">
+function jsFunction(value)
+{
+   var recipientname= document.getElementById('recipientname');
+  var  streetnumber= document.getElementById('streetnumber');
+   var streetname =document.getElementById('street name');
+   var Zip= document.getElementById('Zip');
+    var city=document.getElementById('city');
+    var count=document.getElementById('count');
+recipientname.value='recipientname 1';
+streetnumber.value='recipientname 2';
+    streetname.value='recipientname 3';
+    Zip.value='recipientname 4';
+    city.value='recipientname 5';
+    
+    count.value='recipientname 7';
+}
+function onSubmit()
+{
+
+}
+function onDelete()
+{
+
+}
+</script>
 </form>
 <br><font size=+2 color=#000>Enter Details to Add Shipping Details</font><br><br>
 
@@ -162,7 +184,7 @@
 <tr/>
 <tr/>
 <tr>
-<td>Country*: &nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp &nbsp&nbsp   &nbsp;<input type="text" id="country" /></td>
+<td>Country*: &nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp &nbsp&nbsp   &nbsp;<input type="text" id="country1" /></td>
 </tr>
 <tr/>
 <tr/>
