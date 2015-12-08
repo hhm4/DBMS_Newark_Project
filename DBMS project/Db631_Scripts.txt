@@ -1,0 +1,94 @@
+create table APPEARS_IN (PriceSold decimal(18,3) not null, Quantity integer not null, 
+CartID bigint not null, PID bigint not null, primary key (CartID, PID));
+
+create table CART (CartID bigint not null auto_increment, TDate date not null, TStatus varchar(100)
+ not null, CCNumber varchar(20) not null, CID bigint not null, SAName varchar(70) not null, primary key (CartID));
+
+
+create table COMPUTER (CPUType varchar(50) not null, PID bigint not null, primary key (PID));
+
+create table CREDIT_CARD (CCNumber varchar(20) not null, ExpDate date not null, CCAddress varchar(255)
+ not null, CCType varchar(50) not null, OwnerName varchar(70) not null, SECNumber varchar(4) not null, primary key (CCNumber));
+
+ create table CUSTOMER (CID bigint not null auto_increment, Address varchar(255), Email varchar(150) not null, 
+FName varchar(50) not null, LName varchar(50) not null, Phone varchar(10), Status varchar(50) not null, primary key (CID));
+
+
+create table LAPTOP (Btype varchar(10) not null, Weight integer not null, PID bigint not null, primary key (PID));
+create table OFFER_PRODUCT (OfferPrice decimal(18,3) not null, PID bigint not null, primary key (PID));
+
+create table PRINTER (PrinterType varchar(50) not null, Resolution integer, PID bigint not null, primary key pk_ (PID));
+
+create table PRODUCT (PID bigint not null auto_increment, Description longtext, PName varchar(50) not null, 
+PPrice decimal(18,3) not null, PType varchar(50) not null, PQuantity integer not null, primary key (PID));
+
+ create table SHIPPING_ADDRESS (SAName varchar(70) not null, City varchar(100) not null, Country varchar(20) not null,
+ RecepientName varchar(50) not null, SNumber int not null, State varchar(50) not null, Street varchar(255) not null, 
+Zip int(5) not null, CID bigint not null, primary key (SAName, CID));
+
+
+create table SILVER_AND_ABOVE (CreditLine decimal(18,3) not null, CID bigint not null, primary key (CID));
+
+create table STORED_CARD (CCNumber varchar(20) not null, CID bigint, primary key (CCNumber));
+
+
+alter table CUSTOMER add constraint UK_custuniq  unique (Address);
+
+alter table APPEARS_IN add constraint APPEARS_IN_CART_ID_FK foreign key (CartID) references CART (CartID);
+
+alter table APPEARS_IN add constraint APPEARS_IN_PRODUCT_ID_FK foreign key (PID) references PRODUCT (PID);
+
+alter table CART add constraint CART_CREDIT_CARD_NUM_FK foreign key (CCNumber) references CREDIT_CARD (CCNumber);
+
+alter table COMPUTER add constraint COMPUTER_PRODUCT_ID_FK foreign key (PID) references PRODUCT (PID);
+
+alter table LAPTOP add constraint LAPTOP_PRODUCT_ID_FK foreign key (PID) references PRODUCT (PID);
+
+alter table OFFER_PRODUCT add constraint OFFER_PRODUCT_ID_FK foreign key (PID) references PRODUCT (PID);
+
+alter table PRINTER add constraint PRINTER_PRODUCT_ID_FK foreign key (PID) references PRODUCT (PID);
+
+alter table SHIPPING_ADDRESS add constraint STORED_CARD_ID_CUSTOMER_FK foreign key (CID) references CUSTOMER (CID);
+
+alter table SILVER_AND_ABOVE add constraint SILVER_AND_ABOVE_CUSTOMER_ID_FK foreign key (CID) references CUSTOMER (CID);
+
+alter table STORED_CARD add constraint STORED_CARD_CREDIT_CARD_NUM_FK foreign key (CCNumber) references CREDIT_CARD (CCNumber);
+
+alter table STORED_CARD add constraint STORED_CARD_CUSTOMER_ID_FK foreign key (CID) references CUSTOMER (CID);
+
+alter table CART add constraint FK_cartkey foreign key (SAName,CID) references SHIPPING_ADDRESS (SAName, CID);
+
+
+INSERT INTO `CUSTOMER` (`CID`, `Address`, `Email`, `FName`, `LName`, `Phone`, `Status`) VALUES (NULL, 'Harrison', 'sm2239@njit.edu', 'Sheik', 'Meeran', '872298704', 'Regular');
+
+INSERT INTO `CUSTOMER` (`CID`, `Address`, `Email`, `FName`, `LName`, `Phone`, `Status`) VALUES (NULL, 'Kearney', 'hhm4@njit.edu', 'Hari', 'Narayanan', '8723456977', 'Silver');
+
+INSERT INTO `CUSTOMER` (`CID`, `Address`, `Email`, `FName`, `LName`, `Phone`, `Status`) VALUES (NULL, ' 294 ,Harrison', 'nb245@njit.edu', 'Nikhil', 'Jabade', '534342233', 'Gold'), (NULL, 'Jersey city', 'kum349@njit.edu', 'Kumaran', 'mdl', '3434232323', 'Platinum');
+
+
+INSERT INTO `SILVER_AND_ABOVE` (`CreditLine`, `CID`) VALUES ('2', '2'), ('4', '3'), ('10', '4');
+
+INSERT INTO `CREDIT_CARD` (`CCNumber`, `ExpDate`, `CCAddress`, `CCType`, `OwnerName`, `SECNumber`) VALUES ('370974624196208', '2017-04-14', 'Harrison', 'American Express', 'Sheik', '0456'), (' 372578861791916', '2017-04-14', 'Kearny', 'American Express', 'Unknwn', '0456'), (' 378094404143171', '2017-04-14', 'Jersey city', 'American Express', 'Sheikfasil', '0456'), ('340804853876823', '2017-04-14', 'New Jersey', 'American Express', 'Sheik', '0456'), ('378801506946107', '2017-04-14', 'New Jersey', 'American Express', 'Unknown', '0456');
+
+INSERT INTO `STORED_CARD` (`CCNumber`, `CID`) VALUES ('340804853876823', '1'), ('370974624196208', '2'), (' 372578861791916', '3'), (' 378094404143171', '4'), ('378801506946107', '4');
+
+INSERT INTO `SHIPPING_ADDRESS` (`SAName`, `City`, `Country`, `RecepientName`, `SNumber`, `State`, `Street`, `Zip`, `CID`) VALUES ('Home', 'Harrion', 'United States', 'Sheik', '230', 'New Jersey', 'harrison', '07029', '1'), ('Work', 'New York', 'United States', 'sheik', '234', 'New york', 'East street', '10001', '1'), ('Home', 'Kearny', 'United States', 'hari', '22', 'New Jersey', '2222', '07029', '2'), ('Parent''s home', 'Harrison', 'United states', 'Hari', '22', 'New Jersey', 'harrison', '07029', '2'), ('Work', 'New York', 'United States', 'Hari', '11', 'United States', 'west corner street', '10001', '2'), ('home', 'New york', 'United States', 'sssss', '222', 'New York', 'west corner street', '10001', '3'), ('Home', 'New York', 'United states', 'Kumaran', '21', 'New York', 'hoist street', '10001', '4')
+
+INSERT INTO `CART` (`CartID`, `TDate`, `TStatus`, `CCNumber`, `CID`, `SAName`) VALUES (NULL, '2015-12-01', 'Shipped', '378801506946107', '4', 'Home');
+
+
+INSERT INTO `PRODUCT` (`PID`, `Description`, `PName`, `PPrice`, `PType`, `PQuantity`) VALUES (NULL, 'Lenovo Desktop Computer', 'Lenovo Desktop Computer', '450', 'Desktop Computers', '40'), (NULL, 'Dell Desktop Computer', 'Dell Desktop Computer', '598', 'Desktop Computer', '54'), (NULL, 'AsUS Desktop Computer', 'ASUS desktop Computer', '560', 'Desktop Computer', '55'), (NULL, 'Dell Laptop', 'Dell Laptop', '450', 'Laptop', '44'), (NULL, 'Lenovo Laptop', 'Lenovo Laptop', '670', 'Laptop', '33'), (NULL, 'Asus Laptop', 'ASUS laptop', '655', 'Laptop', '33'), (NULL, 'Dell Printer', 'Dell Printer', '345', 'Printer', '34'), (NULL, 'Lenovo Printer', 'Lenovo Printer', '330', 'Printer', '33');
+
+INSERT INTO `APPEARS_IN` (`PriceSold`, `Quantity`, `CartID`, `PID`) VALUES ('333', '4', '1', '3'), ('45', '4', '1', '5'), ('333', '2', '1', '8'), ('222', '3', '1', '2'), ('222', '3', '1', '4');
+INSERT INTO `OFFER_PRODUCT` (`OfferPrice`, `PID`) VALUES ('10', '2'), ('12', '3'), ('5', '5'), ('7', '7'), ('8', '6');
+
+INSERT INTO `COMPUTER` (`CPUType`, `PID`) VALUES ('Intel Processor', '1'), ('AMD Processor', '2'), ('Dual core Processor', '3');
+
+INSERT INTO `PRINTER` (`PrinterType`, `Resolution`, `PID`) VALUES ('Ink jet', '600', '7'), ('Laser Printer', '1200', '8');
+
+INSERT INTO `LAPTOP` (`Btype`, `Weight`, `PID`) VALUES ('Lithium', '1200', '4'), ('Nickel', '2000', '5'), ('Lithium', '1800', '6');
+
+
+
+
+
