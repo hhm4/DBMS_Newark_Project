@@ -76,23 +76,38 @@ public class UpdateCustomerInfoSavedServlet extends HttpServlet {
 			pw.println("</div>");
 			pw.println("<table>");
 			pw.println("<tr>");
-			pw.println("<td>First Name*: <input type=text name=firstnametext value = "+firstName+"></td>");
+			pw.println("<td>First Name*: <input type=text id=firstnametext name=firstnametext value = "+firstName+"></td>");
 			pw.println("</tr> <tr/>	<tr/> <tr/> <tr/> <tr/> <tr>");
-			pw.println("<td>Last Name*: &nbsp;<input type=text name=lastnametext value = "+lastName+"></td>");
+			pw.println("<td>Last Name*: &nbsp;<input type=text id=lastnametext name=lastnametext value = "+lastName+"></td>");
 			pw.println("</tr> <tr/> <tr/> <tr/> <tr/> <tr/> <tr>");
-			pw.println("<td>Email*: &nbsp;<input type=text name=emailtext value = "+email+"></td>");
+			pw.println("<td>Email*: &nbsp;<input type=text id=emailtext name=emailtext value = "+email+"></td>");
 			pw.println("</tr> <tr/> <tr/> <tr/> <tr/> <tr/> <tr>");
-			pw.println("<td>Phone: &nbsp;<input type=text name=phonetext value = "+phoneNumber+"></td>");
+			pw.println("<td>Phone: &nbsp;<input type=number id=phonetext name=phonetext value = "+phoneNumber+"></td>");
 			pw.println("</tr> <tr/> <tr/> <tr/> <tr/> <tr/> <tr>");
-			pw.println("<td>Address: &nbsp;<input type=text name=addresstext value = "+address+"></td>");
+			pw.println("<td>Address: &nbsp;<input type=text id=addresstext name=addresstext value = "+address+"></td>");
 			pw.println("</tr> <tr/> <tr/> <tr/> <tr/> <tr/> <tr/>");
 			pw.println("</tr> <tr/> <tr/> <tr/> <tr/> <tr/> <tr>");
-			pw.println("<td align=left><input type=submit value=Update Details>");
+			pw.println("<td align=left><input type=submit value=Update Details onclick=\"checKEmpty()\">");
 			pw.println("</tr> <tr/> <tr/> <tr/> <tr/> <tr/> <tr/>");
 			pw.println("</tr> <tr/> <tr/> <tr/> <tr/> <tr/> <tr>");
 			pw.println("<td> <a href = 'HomePage.html'> Go back to home page </a> </td>");
 			pw.println("</tr>");
-			pw.println("</table> </form>");
+			pw.println("</table> <script type=\"text/javascript\">
+var firstnametext=document.getElementById('firstnametext');
+var lastnametext=document.getElementById('lastnametext');
+var addresstext=document.getElementById('addresstext');
+var emailtext =document.getElementById('emailtext');
+var phonetext=document.getElementById('phonetext');
+
+
+function checkEmpty(){
+if(firstnametext.value==null||firstnametext.value==""||lastnametext.value==null||lastnametext.value==""||addresstext.value==""||addresstext.value==null||emailtext.value==null||emailtext.value==""||phonetext.value==null||phonetext.value==""||usernametext.value==null||usernametext.value==""){
+alert(\"Enter details in all the fields\");
+}
+
+}
+
+</script></form>");
 			pw.println("</center>");
 			pw.println("</body>");
 			pw.println("</html>");
