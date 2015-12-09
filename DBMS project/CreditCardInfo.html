@@ -123,7 +123,7 @@ function onDelete(){
 <form method=post action=>
 <table>
 <tr>
-<td>Credit Card No*:&nbsp&nbsp&nbsp &nbsp;  <input type=text name=creditcardno></td>
+<td>Credit Card No*:&nbsp&nbsp&nbsp &nbsp;  <input type=text id="creditcardno2"></td>
 </tr>
 <tr/>
 <tr/>
@@ -131,7 +131,7 @@ function onDelete(){
 <tr/>
 <tr/>
 <tr>
-<td>Credit Card Type*:   &nbsp&nbsp;<input type="text" id="creditcardtype" /></td>
+<td>Credit Card Type*:   &nbsp&nbsp;<input type="text" id="creditcardtype2" /></td>
 </tr>
 <tr/>
 <tr/>
@@ -139,7 +139,7 @@ function onDelete(){
 <tr/>
 <tr/>
 <tr>
-<td>Credit Card Owner*:&nbsp;<input type="text" id="creditcardowner" /></td>
+<td>Credit Card Owner*:&nbsp;<input type="text" id="creditcardowner2" /></td>
 </tr>
 <tr/>
 <tr/>
@@ -147,7 +147,7 @@ function onDelete(){
 <tr/>
 <tr/>
 <tr>
-<td>Security Number*: &nbsp&nbsp&nbsp;<input type="text" id="security number" /></td>
+<td>Security Number*: &nbsp&nbsp&nbsp;<input type="text" id="securitynumber2" /></td>
 </tr>
 <tr/>
 <tr/>
@@ -155,7 +155,7 @@ function onDelete(){
 <tr/>
 <tr/>
 <tr>
-<td>Address*: &nbsp&nbsp &nbsp  &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp   &nbsp;<input type="text" id="Address" /></td>
+<td>Address*: &nbsp&nbsp &nbsp  &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp   &nbsp;<input type="text" id="Address2" /></td>
 </tr>
 <tr/>
 <tr/>
@@ -163,7 +163,7 @@ function onDelete(){
 <tr/>
 <tr/>
 <tr>
-<td>Expiry date*: &nbsp&nbsp&nbsp &nbsp&nbsp&nbsp &nbsp&nbsp   &nbsp;<input type="text" id="expirydate1" /></td>
+<td>Expiry date*: &nbsp&nbsp&nbsp &nbsp&nbsp&nbsp &nbsp&nbsp   &nbsp;<input type="text" id="expirydate2" /></td>
 </tr>
 <tr/>
 <tr/>
@@ -173,8 +173,23 @@ function onDelete(){
 <tr>
 <tr>
 <td></td></tr>
-<td align=center>  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp&nbsp &nbsp<input type=submit value=Add A Card ></td>
+<td align=center>  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp&nbsp &nbsp<input type=submit onclick="checkEmptyCard()" value=Add A Card ></td>
 </table>
+<script type="text/javascript">
+var country2=document.getElementById('country2');
+var Address2=document.getElementById('Address2');
+var securitynumber2=document.getElementById('securitynumber2');
+var creditcardowner2=document.getElementById('creditcardowner2');
+var creditcardtype2=document.getElementById('creditcardtype2');
+var creditcardno2=document.getElementById('creditcardno2');
+
+function checkEmptyCard(){
+
+if(country2.value==null||country2.value==""||Address2.value==null||Address2.value==""||securitynumber2.value==null||securitynumber2.value==""||creditcardowner2.value==null||creditcardowner2.value==""||creditcardtype2.value==null||creditcardtype2.value==""||creditcardno2.value==null||creditcardno2.value==""){
+alert("Enter details in all the fields");
+}
+}
+</script>
 </form>
 
 
