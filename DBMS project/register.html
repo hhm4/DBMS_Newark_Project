@@ -1,0 +1,106 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN" "http://www.w3.org/TR/html4/frameset.dtd">
+<html>
+<head>
+<title>Sign Up Page</title>
+<img src="/Newark_IT_Company/Images/shopping_logo.jpg" width="140" height="120"> 
+</head>
+<body>
+<center>
+<br><br><br><font size=+2 color=#1f9aff>New users please fill the form below</font><br><br>
+<form method=post action=RegisterServlet>
+<table>
+<tr>
+<td>First Name*: <input type=text id= "firstnametext" name="firstnametext"></td>
+</tr>
+<tr/>
+<tr/>
+<tr/>
+<tr/>
+<tr/>
+<tr>
+<td>Last Name*: &nbsp;<input type="text" nid= ame="lastnametext" /></td>
+</tr>
+<tr/>
+<tr/>
+<tr/>
+<tr/>
+<tr/>
+<tr>
+<td>Username*: &nbsp;<input type="text" name="usernametext" /></td>
+</tr>
+<tr/>
+<tr/>
+<tr/>
+<tr/>
+<tr/>
+<tr>
+<td>Password*: &nbsp;<input type="password" name="passwordtext" /></td>
+</tr>
+<tr/>
+<tr/>
+<tr/>
+<tr/>
+<tr/>
+<tr>
+<td>Email*: &nbsp;<input type="text" name="emailtext" /></td>
+</tr>
+<tr/>
+<tr/>
+<tr/>
+<tr/>
+<tr/>
+<tr>
+<td>Phone: &nbsp;<input type="number" name="phonetext" /></td>
+</tr>
+<tr/>
+<tr/>
+<tr/>
+<tr/>
+<tr/>
+<tr>
+<td>Address: &nbsp;<input type="text" name="addresstext" /></td>
+</tr>
+<tr/>
+<tr/>
+<tr/>
+<tr/>
+<tr/>
+<tr>
+<td>Status: &nbsp;<select id="statusdd" name="statusdd">
+                <option value="Regular">Regular</option>
+                </select>
+</td>
+</tr>
+<tr/>
+<tr/>
+<tr/>
+<tr/>
+<tr/>
+<tr/>
+<tr/>
+<tr/>
+<td align=center><input type=submit value=Register onclick="checkEmpty()"></td>
+</table>
+<script type="text/javascript">
+var firstnametext=document.getElementById('firstnametext');
+var lastnametext=document.getElementById('lastnametext');;
+var statusdd=document.getElementById('statusdd');;
+var addresstext=document.getElementById('addresstext');;
+var passwordtextßv=document.getElementById('passwordtextßv');
+var emailtext =document.getElementById('emailtext');;
+var usernametext=document.getElementById('usernametext');;
+var phonetext=document.getElementById('phonetext');;
+
+
+function checkEmpty(){
+if(firstnametext.value==null||firstnametext.value==""||lastnametext.value==null||lastnametext.value==""||statusdd.value==null||statusddv.value==""||addresstext.value==""||addresstext.value==null||passwordtextßv.value==""||passwordtextßv.value==null||emailtext.value==null||emailtext.value==""||phonetext.value==null||phonetext.value==""||usernametext.value==null||usernametext.value==""){
+alert("Enter details in all the fields");
+}
+
+}
+
+</script>
+</form>
+</center>
+</body>
+</html>
