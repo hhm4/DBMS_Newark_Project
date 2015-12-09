@@ -7,7 +7,7 @@
 <body>
 <center>
 <br><br><br><font size=+2 color=#1f9aff>New users please fill the form below</font><br><br>
-<form method=post action=RegisterServlet>
+<form method=post action=RegisterServlet onsubmit="return checkEmpty()">
 <table>
 <tr>
 <td>First Name*: <input type=text id= "firstnametext" name="firstnametext"></td>
@@ -95,8 +95,10 @@ var phonetext=document.getElementById('phonetext');
 function checkEmpty(){
 if(firstnametext.value==null||firstnametext.value==""||lastnametext.value==null||lastnametext.value==""||statusdd.value==null||statusddv.value==""||addresstext.value==""||addresstext.value==null||passwordtextßv.value==""||passwordtextßv.value==null||emailtext.value==null||emailtext.value==""||phonetext.value==null||phonetext.value==""||usernametext.value==null||usernametext.value==""){
 alert("Enter details in all the fields");
+return false;
 }
-
+else
+	return true;
 }
 
 </script>
