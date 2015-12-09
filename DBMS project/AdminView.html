@@ -46,8 +46,39 @@
 <td>Start date*:&nbsp&nbsp&nbsp &nbsp;  <input type="text" id="startdate"></td>
 <td>End Date:*:   &nbsp&nbsp;<input type="text" id="enddate">
 </td>
-<td align=center>  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp&nbsp &nbsp<input type=submit value=Submit ></td>
-
+</tr>
+</tr>
+</tr>
+</tr>
+</tr>
+</tr>
+</tr>
+<tr>
+<td align=center> &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp<select name="statistics" id="statistics" onchange="callstatistics(this.value);">
+   <option>Choose Statistics</option>
+   <option value="1">frequently sold products</option>
+   <option value="2">products-distinct no of customers</option>
+   <option value="3">10 best customers</option>
+   <option value="4">5 best zip codes </option>
+   <option value="5">avg selling product price per product type</option>
+</select>
+</td>
+</tr>
+</tr>
+</tr>
+</tr>
+<td align=center>  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp<input type=submit value=Submit onclick="onSubmit()"></td>
+<script type="text/javascript">
+function onSubmit()
+{
+    var sdate=document.getElementById('startdate').value;
+    var edate= document.getElementById('enddate').value;
+    var stat=document.getElementById('statistics').value;
+}
+function onDelete(){
+  
+}
+</script>
 </tr>
 </tr>
 </table>
