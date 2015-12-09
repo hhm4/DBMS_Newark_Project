@@ -26,7 +26,7 @@
 
 <center>
 <br><br><br><font size=+2 color=#000>Shipping Details</font><br><br>
-<form method=post action=>
+<!-- <form method=post action=>
 <table>
 <tr>
 <td>Name*:&nbsp&nbsp&nbsp&nbsp&nbsp  &nbsp&nbsp&nbsp  &nbsp&nbsp&nbsp&nbsp&nbsp &nbsp;  <select name="shippingAddName" id="shippingAddName" onchange="jsFunction(this.value);">
@@ -125,10 +125,10 @@ function onDelete()
 
 }
 </script>
-</form>
+</form> -->
 <br><font size=+2 color=#000>Enter Details to Add Shipping Details</font><br><br>
 
-<form method=post action=>
+<form method=post action=  onsubmit="return checkEmpty()">
 <table>
 <tr>
 <td>Name*:&nbsp&nbsp&nbsp&nbsp&nbsp  &nbsp&nbsp&nbsp       &nbsp&nbsp&nbsp&nbsp&nbsp &nbsp;  <input type=text id="saname2"></td>
@@ -199,7 +199,7 @@ function onDelete()
 <tr>
 <tr>
 <td></td></tr>
-<td align=center>  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp&nbsp &nbsp<input type=submit value=Add  onclick="checkEmpty()"></td>
+<td align=center>  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp&nbsp &nbsp<input type=submit value=Add ></td>
 </table>
 <script type="text/javascript">
 function checkEmpty(){
@@ -214,7 +214,10 @@ function checkEmpty(){
 
   if (country2.value==null||country2.value==""||state2.value==null||state2.value==""||city2.value==null||city2.value==""||zip2.value==null||zip2.value==""||streetname2.value==null||streetname2.value==""||streetnumber2.value==null||streetnumber2.value==""||recipientname2.value==null||recipientname2.value==""||saname2.value==null||saname2.value==""){
     alert("Enter details in all the fields");
+    return false;
   }
+  else
+    return true;
 }
 </script>
 </form>
